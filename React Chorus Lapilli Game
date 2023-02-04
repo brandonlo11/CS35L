@@ -20,6 +20,15 @@ export default function Board() {
      return;
     }
     const nextSquares = squares.slice();
+    
+    if(moves >= 6 && squares[4]){
+      if (i != 4){
+        if ((xIsNext && squares[4] === 'X') || (!xIsNext && squares[4] === 'O')){
+          return;
+        }
+      }
+    }
+    
     if (moves >= 6 && squares[i] && !spotChosen){
         if (xIsNext && (squares[i] === 'X')){
           nextSquares[i] = null;

@@ -201,9 +201,32 @@ export default function Board() {
       }
     }
 
-    // if (winningMove && !(winner(i, prevSpot))){
-    //   return;
-    // }
+    if (winningMove && spotChosen && (prevSpot !== 4)){
+      if ((((squares[0] === 'X') && (squares[4] === 'X')) || ((squares[0] === 'O') && (squares[4] === 'O'))) && i !== 8){
+        return;
+      }
+      if ((((squares[1] === 'X') && (squares[4] === 'X')) || ((squares[1] === 'O') && (squares[4] === 'O'))) && i !== 7){
+        return;
+      }
+      if ((((squares[2] === 'X') && (squares[4] === 'X')) || ((squares[2] === 'O') && (squares[4] === 'O'))) && i !== 6){
+        return;
+      }
+      if ((((squares[3] === 'X') && (squares[4] === 'X')) || ((squares[3] === 'O') && (squares[4] === 'O'))) && i !== 5){
+        return;
+      }
+      if ((((squares[5] === 'X') && (squares[4] === 'X')) || ((squares[5] === 'O') && (squares[4] === 'O'))) && i !== 3){
+        return;
+      }
+      if ((((squares[6] === 'X') && (squares[4] === 'X')) || ((squares[6] === 'O') && (squares[4] === 'O'))) && i !== 2){
+        return;
+      }
+      if ((((squares[7] === 'X') && (squares[4] === 'X')) || ((squares[7] === 'O') && (squares[4] === 'O'))) && i !== 1){
+        return;
+      }
+      if ((((squares[8] === 'X') && (squares[4] === 'X')) || ((squares[8] === 'O') && (squares[4] === 'O'))) && i !== 0){
+        return;
+      }
+    }
 
     if (moves >= 6 && squares[i] && !spotChosen){
         if (xIsNext && (squares[i] === 'X')){
@@ -312,10 +335,3 @@ function valid(i, j) {
   else if (i === 8)
     return j === 4 || j === 5 || j === 7;
 }
-
-// function winner(i, j) {
-//   if (i === 5 && ((xIsNext && (squares[4] === 'X') && (squares[0] === 'X') && (squares[5] === 'X')) || (!xIsNext && (squares[4] === 'O') && (squares[0] === 'O') && (squares[5] === 'O'))))
-//     return j === 8;
-//   else if (i === 0 && ((xIsNext && (squares[4] === 'X') && (squares[2] === 'X') && (squares[5] === 'X')) || (!xIsNext && (squares[4] === 'O') && (squares[2] === 'O') && (squares[5] === 'O'))))
-//     return j === 6;
-// }

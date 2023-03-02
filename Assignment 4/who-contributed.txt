@@ -1,0 +1,38 @@
+I was first trying to find the commit by traversing through the commit I found and all the parent commits.
+
+grep "Even newspaper reports present contradictory information" $(git ls-files)
+grep "Even newspaper reports present contradictory information" northamerica
+git blame northamerica | grep "Even newspaper reports present contradictory information"
+git show c8f960ec7
+git log
+git show --format=%P 614b193e
+git show --format=%P 28cf16f5759
+git show --format=%P 5e8489b16
+git show --format=%P 242980fc79e
+git show --format=%P 3526093c712c
+git show --format=%P 46441ef0c
+git show --format=%P 45dcf69b45
+git show --format=%P 9432f1d23d3c
+git show --format=%P 81be53c16b97
+
+git show 5546a79c:northamerica | grep "Even newspaper reports present contradictory information"
+git log --pretty=format:"%h %p" 5546a79c
+git show 09936256:northamerica | grep "Even newspaper reports present contradictory information"
+git log --pretty=format:"%h %p" 09936256
+git show 4fc4c4cf:northamerica | grep "Even newspaper reports present contradictory information"
+git show a2b5d34b:northamerica | grep "Even newspaper reports present contradictory information"
+git log --pretty=format:"%h %p" 7664cd8b | grep "Even newspaper reports present contradictory information"
+
+**The line is not in this one.
+
+git show 9c60b87f:northamerica | grep "Even newspaper reports present contradictory information"
+
+
+
+Then, I found I could use a command to find the original commit:
+
+
+
+git log -S "Even newspaper reports present contradictory information"
+
+This shows Arthur David Olson changed the northamerica file to add the line "Even newspaper reports present contradictory information" on commit c12b432741eed9a422fbf99fa27af6e7a941d88b. This was on Thu Dec 21 11:43:42 1995.

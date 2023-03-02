@@ -1,0 +1,13 @@
+When using the git branch command on the git repository I cloned myself, it outputted only the master branch:
+
+* master
+
+However, in the repository at ~eggert/src/github/git, it outputted multiple branches: 
+
+  maint
+* master
+  next
+  seen
+  todo
+
+The differences between the two repositories are the branches that are available and the commits that are available on those branches. The repository at ~eggert/src/github/gitlocal has local branches that are not available in the other repository. This could mean that the two repositories have diverged due to changes made in one repository but not in the other.

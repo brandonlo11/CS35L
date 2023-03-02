@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ $# -ne 2 ]; then
+    echo "Usage: compare-releases <release1> <release2>"
+    exit 1
+fi
+git diff $1..$2 > $1-$2.diff

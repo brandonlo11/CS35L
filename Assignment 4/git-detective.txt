@@ -1,0 +1,4 @@
+Commit 0b55d930a69692c7f4e7b90e35fa41f6c46df4bc
+Return statements were added to return 0 or -1 depending on the instance. dscho authored and gitster committed.
+
+I discovered this by searching the GitHub repository for the beginning of the sentence given, "In read-only repositories". I then went to the commits tab which contained this sentence and found the commit which originally made these changes and was not only a merge commit.

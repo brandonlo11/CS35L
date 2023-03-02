@@ -1,0 +1,39 @@
+The first thing I did was modify the Makefile so the command make check implemented a test case for my program. I did this by adding a shell function called check. 
+
+My shell script has a for loop which iterates over the sequence of numbers from 1 to 10. For each number "i" in the sequence, the script generates a random string of length "i" and counts the number of characters in it. If the count does not match the expected length "i", the script prints "ERROR" and exits. I then repeat this for a sequence of numbers from 1 to 1024, in powers of 2. If all checks pass it prints "SUCCESS".
+
+I then began modularizing the code. I took the code in randall.c between the comments which specified the hardware-based random-number generation and placed that code in rand64-hw.c. I did the same for the software-based random-number generation, but placed it in rand64-sw.c. I think created the function definitions for the functions in this code in rand64-hw.h and rand64-sw.h. 
+
+I had trouble figuring out how to test this code, but I eventually realized I needed to edit Makefile so randall had *.c, so it would include the other .c files I created. I could then test with make check.
+
+I then added the proper include statements, which included #include <stdbool.h>, #include <cpuid.h>, and #include <immintrin.h> in rand64-hw.h and #include <stdio.h> in rand64-sw.h. I then added the proper include statements to the .c files as well.
+
+I then created the file output.c and put the function write bytes in it. I then defined the function in output.h and put the proper include statements in both.
+
+In order to implement the flags, I implemented a function options() with a while loop using the getopt function. I implemented a switch statement for each flag. I put this function in options.c and made the accompanying options.h header file.
+
+I then changed the main function of randall.c to change the functionality based off of the flags and arguments that the user inputs. 
+
+When creating my tarball using the make submission-tarball command, I realized that many of my files were missing from the tarball. I then realized I had to edit the assignment files section of the Makefile to include all my files.
+
+Timing:
+
+time dd if=/dev/urandom ibs=8192 obs=8192 count=16384 >/dev/null
+real	0m1.151s
+user	0m0.017s
+sys	0m0.898s
+
+time ./randall 133562368 >/dev/null
+real	0m4.129s
+user	0m3.878s
+sys	0m0.107s
+
+time ./randall 133562368 | cat >/dev/null
+real	0m4.392s
+user	0m3.611s
+sys	0m0.575s
+
+time ./randall 133562368 >rand.data
+real	0m5.944s
+user	0m4.100s
+sys	0m0.127s

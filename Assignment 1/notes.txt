@@ -1,0 +1,226 @@
+1.4
+
+8. I found 6 instances
+
+1.5
+
+1. sh is located at /usr/bin/sh
+sleep is located at /usr/local/cs/bin/sleep
+type is located at /usr/bin/type
+These can be found using the which command.
+
+2. sed and seq. sed is a stream editor and seq is used to print sequences of numbers.
+
+3. /usr/local/cs/emacs-28.2/bin/emacs-28.2 
+
+4. version number of the /usr/bin/gcc program: gcc version 8.5.0 20210514 (Red Hat 8.5.0-4)
+Version number of the plain gcc program: gcc version 12.2.0
+These can be found using the commands /usr/bin/gcc -v and gcc -v. 
+They are different programs because, /usr/bin/gcc is the default version of GCC that comes with the operating system, and there are situations where you may want to use a different version. Therefore the version number of the /usr/bin/gcc program may be different from the version number of the plain gcc program.
+
+5. u means owner as in you, so u+sx is adding s (set user or group ID on execution) and x (execute) permissions for the owner. o is others, so o-w is taking away write permissions from others.
+
+6. find /usr/local/cs -type d -newermt '2023-01-10T00:00:00'
+The list of files are copied at the end of the text file.
+
+7. ls -l /usr/bin | grep ^l | wc
+327
+
+8. ls -lat /usr/lib64
+libbz2.so.1
+
+9. transpose-chars, transpose-lines, and transpose-regions
+
+10. Yank is like the paste command, inserting the text most recent in the kill order (either something deleted or copied). It can be easily invoked using keystroke C-y (command y)
+
+11. dired: has current and parent directories, available space. Also different color coding. Output is very similar.
+
+12. 
+[lob@lnxsrv11 ~]$ ps -ef | grep "^lob"
+lob      3385465       1  0 16:39 ?        00:00:00 /usr/lib/systemd/systemd --user
+lob      3385467 3385465  0 16:39 ?        00:00:00 (sd-pam)
+lob      3385476 3385429  0 16:39 ?        00:00:00 sshd: lob@pts/28
+lob      3385478 3385476  0 16:39 pts/28   00:00:00 -bash
+lob      3385506 3385465  0 16:39 ?        00:00:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+lob      3385509 3385465  0 16:39 ?        00:00:00 /usr/libexec/gvfsd
+lob      3387086 3385478  0 16:43 pts/28   00:00:00 ps -ef
+lob      3387087 3385478  0 16:43 pts/28   00:00:00 grep --color=auto ^lob
+[lob@lnxsrv11 ~]$ ps -ef | grep "3385429"
+root     3385429    1543  0 16:39 ?        00:00:00 sshd: lob [priv]
+lob      3385476 3385429  0 16:39 ?        00:00:00 sshd: lob@pts/28
+lob      3387555 3385478  0 16:45 pts/28   00:00:00 grep --color=auto 3385429
+[lob@lnxsrv11 ~]$ ps -ef | grep "1543"
+root        1543       1  0  2022 ?        00:00:59 /usr/sbin/sshd -D -oCiphers=aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr,aes256-cbc,aes128-gcm@openssh.com,aes128-ctr,aes128-cbc -oMACs=hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha1,umac-128@openssh.com,hmac-sha2-512 -oGSSAPIKexAlgorithms=gss-curve25519-sha256-,gss-nistp256-sha256-,gss-group14-sha256-,gss-group16-sha512-,gss-gex-sha1-,gss-group14-sha1- -oKexAlgorithms=curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1 -oHostKeyAlgorithms=ecdsa-sha2-nistp256,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-256,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-512-cert-v01@openssh.com,ssh-rsa,ssh-rsa-cert-v01@openssh.com -oPubkeyAcceptedKeyTypes=ecdsa-sha2-nistp256,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-256,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-512-cert-v01@openssh.com,ssh-rsa,ssh-rsa-cert-v01@openssh.com -oCASignatureAlgorithms=ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,rsa-sha2-256,rsa-sha2-512,ssh-rsa
+
+
+Login shell's process:
+lob      3385478 3385476  0 16:39 pts/28   00:00:00 -bash
+
+Ancestors:
+lob      3385476 3385429  0 16:39 ?        00:00:00 sshd: lob@pts/28
+root     3385429    1543  0 16:39 ?        00:00:00 sshd: lob [priv]
+root        1543       1  0  2022 ?        00:00:59 /usr/sbin/sshd -D ...
+
+Descendents:
+lob      3387086 3385478  0 16:43 pts/28   00:00:00 ps -ef
+lob      3387087 3385478  0 16:43 pts/28   00:00:00 grep --color=auto ^lob
+
+
+1.6 explanation:
+The shell script I wrote will convert uppercase to lowercase characters, shrink spaces, replace spaces with newlines, removes non alphanumeric or non underscore characters from the beginning or end of the words. This works when sorted.words is converted to lowercase and non alphanumeric or non underscore characters are removed from the start and end of words and then sorted uniquely.
+
+For 1.5 question 6:
+/usr/local/cs
+/usr/local/cs/wget2-2.0.1
+/usr/local/cs/wget2-2.0.1/include
+/usr/local/cs/wget2-2.0.1/lib
+/usr/local/cs/wget2-2.0.1/lib/pkgconfig
+/usr/local/cs/wget2-2.0.1/bin
+/usr/local/cs/wget2-2.0.1/share
+/usr/local/cs/wget2-2.0.1/share/locale
+/usr/local/cs/wget2-2.0.1/share/locale/ca
+/usr/local/cs/wget2-2.0.1/share/locale/ca/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/cs
+/usr/local/cs/wget2-2.0.1/share/locale/cs/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/de
+/usr/local/cs/wget2-2.0.1/share/locale/de/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/eo
+/usr/local/cs/wget2-2.0.1/share/locale/eo/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/es
+/usr/local/cs/wget2-2.0.1/share/locale/es/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/et
+/usr/local/cs/wget2-2.0.1/share/locale/et/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/fi
+/usr/local/cs/wget2-2.0.1/share/locale/fi/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/fr
+/usr/local/cs/wget2-2.0.1/share/locale/fr/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/ga
+/usr/local/cs/wget2-2.0.1/share/locale/ga/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/hr
+/usr/local/cs/wget2-2.0.1/share/locale/hr/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/hu
+/usr/local/cs/wget2-2.0.1/share/locale/hu/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/id
+/usr/local/cs/wget2-2.0.1/share/locale/id/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/it
+/usr/local/cs/wget2-2.0.1/share/locale/it/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/ja
+/usr/local/cs/wget2-2.0.1/share/locale/ja/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/nb
+/usr/local/cs/wget2-2.0.1/share/locale/nb/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/nl
+/usr/local/cs/wget2-2.0.1/share/locale/nl/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/pl
+/usr/local/cs/wget2-2.0.1/share/locale/pl/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/pt_BR
+/usr/local/cs/wget2-2.0.1/share/locale/pt_BR/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/ro
+/usr/local/cs/wget2-2.0.1/share/locale/ro/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/ru
+/usr/local/cs/wget2-2.0.1/share/locale/ru/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/sk
+/usr/local/cs/wget2-2.0.1/share/locale/sk/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/sr
+/usr/local/cs/wget2-2.0.1/share/locale/sr/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/sv
+/usr/local/cs/wget2-2.0.1/share/locale/sv/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/tr
+/usr/local/cs/wget2-2.0.1/share/locale/tr/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/uk
+/usr/local/cs/wget2-2.0.1/share/locale/uk/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/vi
+/usr/local/cs/wget2-2.0.1/share/locale/vi/LC_MESSAGES
+/usr/local/cs/wget2-2.0.1/share/locale/zh_CN
+/usr/local/cs/wget2-2.0.1/share/locale/zh_CN/LC_MESSAGES
+/usr/local/cs/bin
+/usr/local/cs/diffutils-3.9
+/usr/local/cs/diffutils-3.9/bin
+/usr/local/cs/diffutils-3.9/share
+/usr/local/cs/diffutils-3.9/share/info
+/usr/local/cs/diffutils-3.9/share/man
+/usr/local/cs/diffutils-3.9/share/man/man1
+/usr/local/cs/diffutils-3.9/share/locale
+/usr/local/cs/diffutils-3.9/share/locale/bg
+/usr/local/cs/diffutils-3.9/share/locale/bg/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ca
+/usr/local/cs/diffutils-3.9/share/locale/ca/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/cs
+/usr/local/cs/diffutils-3.9/share/locale/cs/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/da
+/usr/local/cs/diffutils-3.9/share/locale/da/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/de
+/usr/local/cs/diffutils-3.9/share/locale/de/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/el
+/usr/local/cs/diffutils-3.9/share/locale/el/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/eo
+/usr/local/cs/diffutils-3.9/share/locale/eo/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/es
+/usr/local/cs/diffutils-3.9/share/locale/es/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/fi
+/usr/local/cs/diffutils-3.9/share/locale/fi/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/fr
+/usr/local/cs/diffutils-3.9/share/locale/fr/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ga
+/usr/local/cs/diffutils-3.9/share/locale/ga/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/gl
+/usr/local/cs/diffutils-3.9/share/locale/gl/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/he
+/usr/local/cs/diffutils-3.9/share/locale/he/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/hr
+/usr/local/cs/diffutils-3.9/share/locale/hr/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/hu
+/usr/local/cs/diffutils-3.9/share/locale/hu/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/id
+/usr/local/cs/diffutils-3.9/share/locale/id/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/it
+/usr/local/cs/diffutils-3.9/share/locale/it/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ja
+/usr/local/cs/diffutils-3.9/share/locale/ja/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ka
+/usr/local/cs/diffutils-3.9/share/locale/ka/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ko
+/usr/local/cs/diffutils-3.9/share/locale/ko/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/lv
+/usr/local/cs/diffutils-3.9/share/locale/lv/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ms
+/usr/local/cs/diffutils-3.9/share/locale/ms/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/nb
+/usr/local/cs/diffutils-3.9/share/locale/nb/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/nl
+/usr/local/cs/diffutils-3.9/share/locale/nl/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/pl
+/usr/local/cs/diffutils-3.9/share/locale/pl/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/pt
+/usr/local/cs/diffutils-3.9/share/locale/pt/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/pt_BR
+/usr/local/cs/diffutils-3.9/share/locale/pt_BR/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ro
+/usr/local/cs/diffutils-3.9/share/locale/ro/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/ru
+/usr/local/cs/diffutils-3.9/share/locale/ru/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/sr
+/usr/local/cs/diffutils-3.9/share/locale/sr/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/sv
+/usr/local/cs/diffutils-3.9/share/locale/sv/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/tr
+/usr/local/cs/diffutils-3.9/share/locale/tr/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/uk
+/usr/local/cs/diffutils-3.9/share/locale/uk/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/vi
+/usr/local/cs/diffutils-3.9/share/locale/vi/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/zh_CN
+/usr/local/cs/diffutils-3.9/share/locale/zh_CN/LC_MESSAGES
+/usr/local/cs/diffutils-3.9/share/locale/zh_TW
+/usr/local/cs/diffutils-3.9/share/locale/zh_TW/LC_MESSAGES
+/usr/local/cs/share/info
+/usr/local/cs/share/man/man1
+/usr/local/cs/src
+/usr/local/cs/src/python
+/usr/local/cs/src/python/RCS
+/usr/local/cs/src/diffutils
+/usr/local/cs/src/diffutils/RCS
+/usr/local/cs/src/wget2
+/usr/local/cs/.del
+/usr/local/cs/.del/diffutils-3.8
+/usr/local/cs/.del/texinfo-6.8
+/usr/local/cs/.del/ocaml-4.14.0

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+tr [:upper:] [:lower:] | tr -s " " |  tr "[:space:]" "\n" | sed -e "s/^[^a-z0-9_]//g" | sed -e "s/[^a-z0-9_]$//g" | sort -u | comm -23 - sorted.words
+
+# sorted.words is made lowercase and the punctuation is removed from the beginning and end of words and then uniquely sorted

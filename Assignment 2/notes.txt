@@ -1,0 +1,74 @@
+2.1
+
+1. To open scratch buffer, use the command C-x b.
+I then typed: (* (expt 2 (1- 607)) (- (expt 2 607) 1))
+To compute the result, I used the command C-j.
+
+2. I used a combination of ceiling (rounds up to the nearest integer) and the log command to determine how many bits it would take to represent this number in base-2 notation.
+I typed: (+ (ceiling (log (expt 2 (1- 607)) 2)) (ceiling (log (- (expt 2 607) 1) 2)))
+This gave me the integer 1213.
+
+3. C-h k is the "help describe key", which opens a mini buffer that allows you to type a command which it will describe the function of. Therefore, typing C-h k again will describe the functions of it, which I described above.
+
+4. Again, C-h k is the "help describe key", which opens a mini buffer that allows you to type a command which it will describe the function of. Therefore, typing M-SPC will describe the functions of M-SPC. The M-SPC command is used to remove all spaces and tabs around the cursor besides one space. If N is negative, it delete newlines as well.
+
+5. The more general function of M-SPC is M-x just-one-space.
+
+Homework:
+
+When you run randline.py on /dev/null it raises the IndexError and fails because the file is empty because it cannot pick a random index of line because there are no lines.
+
+When you run landline.py on python3 it won't run because line 65 has invalid syntax for python3.
+
+Homework:
+
+My shuf.py works both on python3 and python2.
+
+OS:
+NAME="Red Hat Enterprise Linux"
+VERSION="8.5 (Ootpa)"
+
+CPU:
+Model name:          Intel(R) Xeon(R) Silver 4116 CPU @ 2.10GHz
+
+time /usr/bin/python3 shuf.py < /usr/share/unicode/ucd/BidiTest.txt > /dev/null
+
+real	0m0.831s
+user	0m0.784s
+sys	0m0.042s
+
+real	0m0.839s
+user	0m0.804s
+sys	0m0.030s
+
+real	0m0.844s
+user	0m0.791s
+sys	0m0.039s
+
+time /usr/local/cs/bin/python3 shuf.py < /usr/share/unicode/ucd/BidiTest.txt > /dev/null
+
+real	0m0.549s
+user	0m0.502s
+sys	0m0.032s
+
+real	0m0.557s
+user	0m0.502s
+sys	0m0.041s
+
+real	0m0.552s
+user	0m0.503s
+sys	0m0.034s
+
+time /usr/local/cs/bin/shuf < /usr/share/unicode/ucd/BidiTest.txt > /dev/null
+
+real	0m0.074s
+user	0m0.058s
+sys	0m0.012s
+
+real	0m0.065s
+user	0m0.053s
+sys	0m0.011s
+
+real	0m0.064s
+user	0m0.057s
+sys	0m0.007s
